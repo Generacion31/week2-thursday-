@@ -117,3 +117,61 @@ console.log(abc.sort()); // [ 'a', 'e', 'i', 'o', 'u' ]
 
 //mayor a menor
 console.log(abc.sort().reverse()); //[ 'u', 'o', 'i', 'e', 'a' ]
+
+
+
+//SPLICE
+// .splice(desde,cuantos) - desde(la posicion) cuantos(los que deseo recortar/extraer/eliminar). Y tambien si deseo puedo agregar elementos con el metodo. Modifica el array original
+
+
+/**
+ * El primer argumento recibe de donde voy a empezar a trabajar.
+ * Tambien recibe indices negativos, como primer argumento
+ * El segundo argumneto indica cuantos elemntos recortare/ elimare/extreré
+ * Luego los siguimientos idicaran los elementos que agregare al array que estoy operando
+ * ¿QUE RETORNA SPLICE? 
+ * es un array con elementos recortados. En caso que haya indicado que recortare 0 elemntos, recibire un array vacio.
+ */
+
+const estudiantes = ['Nelson', 'Oscar', 'Johan', 'Cristian', 'Santiago']
+//                    0         1         2          3         4
+//                    -5        -4        -3         -2        -1                         
+
+console.log('--------------------------------');
+
+console.log(estudiantes.splice(2, 2)); //[ 'Johan', 'Cristian' ]
+
+console.log(estudiantes); //[ 'Nelson', 'Oscar', 'Santiago' ]
+//                               0        1          2
+console.log(estudiantes.splice(0, 0, 'Critian', 'Cristyan')) //[]
+console.log(estudiantes); //[ 'Critian', 'Cristyan', 'Nelson', 'Oscar', 'Santiago' ]
+//                               0             1        2         3         4
+console.log(estudiantes.splice(2, 0, 'Karla'));// []
+console.log(estudiantes); //[ 'Critian', 'Cristyan', 'Karla', 'Nelson', 'Oscar', 'Santiago' ]
+//                                0           1         2          3      4          5
+
+const test = estudiantes.splice(-1, 1, 'Bramndhom')
+console.log(test);// ['Santiago']
+console.log(estudiantes); //[ 'Critian', 'Cristyan', 'Karla', 'Nelson', 'Oscar', 'Bramndhom' ]
+
+
+console.log('--------------------------------');
+
+//SLICE
+// El slice se utilza para hacer coipias de array, y en si la sintaxis es la siguiente:
+// .slice(indiceIncial, indiceFinal)
+// Es muy importante recordar que no incluira al elemento del ultimo indice
+// Tambien recibe numeros negativos
+// El slice no necesariamente debe llevar argumentos
+
+const color = ['Rojo', 'Verde', 'Azul', 'Amarillo']
+//               0        1        2        3
+
+console.log(color.slice(1, 3)); //[ 'Verde', 'Azul' ]
+console.log(color.slice(0)); //[ 'Rojo', 'Verde', 'Azul', 'Amarillo' ]
+console.log(color.slice(-3, -1)); //[ 'Verde', 'Azul' ]
+console.log(color.slice()); //[ 'Rojo', 'Verde', 'Azul', 'Amarillo' ]
+console.log(color.slice(-2, -1)); //[ 'Azul' ]
+console.log(color.slice(-2)); //[ 'Azul', 'Amarillo' ]
+console.log(color.slice(1)); //[ 'Verde', 'Azul', 'Amarillo' ]
+console.log(color.slice(-1)); //[ 'Amarillo' ]
